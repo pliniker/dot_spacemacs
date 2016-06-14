@@ -1,2 +1,1 @@
-# dot_spacemacs
-.spacemacs
+.spacemacs.d
