@@ -259,6 +259,8 @@ before packages are loaded. If you are unsure, you should try in setting them in
     (global-set-key [M-S-left] 'previous-buffer)
     (global-set-key [M-S-right] 'next-buffer)
     (set-face-bold-p 'bold nil)
+
+    (setq tramp-ssh-controlmaster-options "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
     )
   )
 
