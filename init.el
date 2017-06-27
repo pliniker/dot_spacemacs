@@ -241,6 +241,18 @@ values."
    dotspacemacs-whitespace-cleanup 'trailing
    ))
 
+
+;; Any themes that are 90% of the way to usable but require tweaks
+(defun customize-theme ()
+  (when (eq (car custom-enabled-themes) 'mccarthy)  ;; mccarthy theme's cursor line bg is too dark
+    (message "customizing theme")
+    (custom-theme-set-faces
+     'mccarthy
+     `(highlight ((t (:background, "#C7B3BB"))))
+     `(highlight-face ((t (:background, "#C7B3BB"))))
+     `(hl-line ((t (:background, "#C7B3BB" :underline f)))))))
+
+
 (defun dotspacemacs/user-init ()
   "Initialization function for user code.
 It is called immediately after `dotspacemacs/init', before layer configuration
@@ -262,8 +274,8 @@ before packages are loaded. If you are unsure, you should try in setting them in
 
     (add-hook 'weechat-mode-hook 'turn-on-visual-line-mode)
     (setq browse-url-browser-function 'browse-url-chromium)
-    )
-  )
+    (add-hook 'spacemacs-post-theme-change-hook 'customize-theme)
+   ))
 
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
