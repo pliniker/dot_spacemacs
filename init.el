@@ -250,7 +250,7 @@ values."
      'mccarthy
      `(highlight ((t (:background, "#C7B3BB"))))
      `(highlight-face ((t (:background, "#C7B3BB"))))
-     `(hl-line ((t (:background, "#C7B3BB" :underline f)))))))
+     `(hl-line ((t (:background, "#C7B3BB" :underline nil)))))))
 
 
 (defun dotspacemacs/user-init ()
