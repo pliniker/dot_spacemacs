@@ -51,7 +51,7 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '(weechat)
+   dotspacemacs-additional-packages '()
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
@@ -268,12 +268,11 @@ before packages are loaded. If you are unsure, you should try in setting them in
     (global-set-key [M-right] 'windmove-right)
     (global-set-key [M-S-left] 'previous-buffer)
     (global-set-key [M-S-right] 'next-buffer)
+
     (set-face-bold-p 'bold nil)
 
     (setq tramp-ssh-controlmaster-options "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
 
-    (add-hook 'weechat-mode-hook 'turn-on-visual-line-mode)
-    (setq browse-url-browser-function 'browse-url-chromium)
     (add-hook 'spacemacs-post-theme-change-hook 'customize-theme)
    ))
 
