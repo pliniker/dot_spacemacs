@@ -130,8 +130,8 @@ values."
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
    dotspacemacs-default-font '("Source Code Pro"
-                               :size 17
-                               :weight normal
+                               :size 18
+                               :weight regular
                                :width normal
                                :powerline-scale 1.6)
    ;; The leader key
@@ -284,9 +284,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
     (global-set-key [M-S-left] 'previous-buffer)
     (global-set-key [M-S-right] 'next-buffer)
 
-    (set-face-bold-p 'bold nil)
-
-    (setq tramp-ssh-controlmaster-options "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
+    ;;(setq tramp-ssh-controlmaster-options "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
 
     (add-hook 'spacemacs-post-theme-change-hook 'customize-theme)
    ))
@@ -299,9 +297,14 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
     (spacemacs/toggle-truncate-lines-on)
+
     (setq create-lockfiles nil)
-    (setq-default line-spacing 3)
     (setq case-fold-search nil)
+
+    (setq-default line-spacing 4)
+
+    (set-face-bold-p 'bold nil)
+    (set-face-italic-p 'italic nil)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -311,7 +314,4 @@ you should place your code here."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-safe-themes
-   (quote
-    ("51e228ffd6c4fff9b5168b31d5927c27734e82ec61f414970fc6bcce23bc140d" "53a9ec5700cf2bb2f7059a584c12a5fdc89f7811530294f9eaf92db526a9fb5f" "6b289bab28a7e511f9c54496be647dc60f5bd8f9917c9495978762b99d8c96a0" "b54826e5d9978d59f9e0a169bbd4739dd927eead3ef65f56786621b53c031a7c" "93a0885d5f46d2aeac12bf6be1754faa7d5e28b27926b8aa812840fe7d0b7983" "4697a2d4afca3f5ed4fdf5f715e36a6cac5c6154e105f3596b44a4874ae52c45" "151bde695af0b0e69c3846500f58d9a0ca8cb2d447da68d7fbf4154dcf818ebc" "ecba61c2239fbef776a72b65295b88e5534e458dfe3e6d7d9f9cb353448a569e" "75d3dde259ce79660bac8e9e237b55674b910b470f313cdf4b019230d01a982a" default)))
- '(evil-want-Y-yank-to-eol t))
+)
