@@ -124,10 +124,9 @@ values."
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(
-                         doom-one
+                         spacemacs-dark
                          doom-Iosvkem
-                         adwaita
-                         material-light
+                         spacemacs-light
                          )
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
@@ -261,17 +260,6 @@ values."
    ))
 
 
-;; Any themes that are 90% of the way to usable but require tweaks
-(defun customize-theme ()
-  (when (eq (car custom-enabled-themes) 'mccarthy)  ;; mccarthy theme's cursor line bg is too dark
-    (message "customizing theme")
-    (custom-theme-set-faces
-     'mccarthy
-     `(highlight ((t (:background, "#C7B3BB"))))
-     `(highlight-face ((t (:background, "#C7B3BB"))))
-     `(hl-line ((t (:background, "#C7B3BB" :underline nil)))))))
-
-
 (defun dotspacemacs/user-init ()
   "Initialization function for user code.
 It is called immediately after `dotspacemacs/init', before layer configuration
@@ -290,7 +278,6 @@ before packages are loaded. If you are unsure, you should try in setting them in
 
     ;;(setq tramp-ssh-controlmaster-options "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
 
-    (add-hook 'spacemacs-post-theme-change-hook 'customize-theme)
    ))
 
 (defun dotspacemacs/user-config ()
