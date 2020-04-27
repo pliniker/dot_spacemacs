@@ -31,28 +31,24 @@ values."
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
    '(
-     auto-completion
      better-defaults
-     emacs-lisp
+     auto-completion
+     version-control
      git
      markdown
      syntax-checking
-     version-control
-     python
+     emacs-lisp
      shell-scripts
-     sql
      yaml
+     python
      rust
+     (rust :variables rust-backend 'lsp)
      haskell
-     clojure
      common-lisp
-     ruby
+     lsp
+     (lsp :variables lsp-rust-server 'rust-analyzer)
+     dap
      themes-megapack
-     ;; org
-     ;; (shell :variables
-     ;;        shell-default-height 30
-     ;;        shell-default-position 'bottom)
-     ;; spell-checking
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -254,7 +250,6 @@ values."
    dotspacemacs-whitespace-cleanup 'trailing
    ))
 
-
 (defun dotspacemacs/user-init ()
   "Initialization function for user code.
 It is called immediately after `dotspacemacs/init', before layer configuration
@@ -296,6 +291,8 @@ you should place your code here."
 
     ;; Colortheme fix in terminal
     ;;(custom-set-faces (if (not window-system) '(default ((t (:background "nil"))))))
+
+    (setq rust-format-on-save 't)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
