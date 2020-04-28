@@ -32,7 +32,7 @@ values."
    dotspacemacs-configuration-layers
    '(
      better-defaults
-     auto-completion
+     ;; auto-completion
      version-control
      git
      markdown
@@ -42,11 +42,19 @@ values."
      yaml
      python
      rust
-     (rust :variables rust-backend 'lsp)
+     (rust :variables 
+           rust-backend 'lsp
+           rust-format-on-save t)
      haskell
      common-lisp
      lsp
-     (lsp :variables lsp-rust-server 'rust-analyzer)
+     (lsp :variables 
+          lsp-rust-server 'rust-analyzer
+          lsp-ui-doc-enable nil
+          lsp-rust-show-hover-context nil
+          lsp-rust-wait-to-build 2000
+          lsp-rust-analyzer-max-inlay-hint-length 40
+          lsp-rust-analyzer-cargo-watch-enable t)
      dap
      themes-megapack
      )
