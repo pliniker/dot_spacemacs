@@ -43,10 +43,32 @@ values."
      python
      rust
      (rust :variables 
-           rust-backend nil
-           rust-format-on-save t)
+           rust-backend 'nothing 
+           ;; Disabled while it intrudes into the editor too much
+           ;; rust-backend 'lsp
+           rust-format-on-save t
+           )
      haskell
      common-lisp
+     lsp
+     (lsp :variables 
+          lsp-ui-doc-enable nil
+          lsp-idle-delay 1.0
+          lsp-prefer-flymake nil
+          lsp-lens-check-interval 2.0
+          lsp-lens-debounce-interval 1.0
+          lsp-ui-sideline-show-code-actions nil
+          lsp-rust-server 'rust-analyzer
+          lsp-rust-racer-completion nil
+          lsp-rust-show-hover-context nil
+          lsp-rust-build-on-save t
+          lsp-rust-analyzer-server-display-inlay-hints nil
+          lsp-rust-analyzer-display-chaining-hints nil
+          lsp-rust-analyzer-display-parameter-hints nil
+          lsp-rust-analyzer-max-inlay-hint-length 40
+          lsp-rust-analyzer-lru-capacity 1024
+          lsp-rust-analyzer-cargo-watch-enable t
+          )
      dap
      themes-megapack
      )
@@ -293,12 +315,6 @@ you should place your code here."
     ;;(custom-set-faces (if (not window-system) '(default ((t (:background "nil"))))))
 
     (setq which-key-side-window-max-width 0.66)
-
-    (setq lsp-idle-delay 5.0)
-    (setq flycheck-idle-change-delay 5.0)
-    (setq lsp-ui-sideline-enable nil
-          lsp-ui-doc-enable nil
-          lsp-eldoc-hook nil)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
