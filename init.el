@@ -44,8 +44,7 @@ values."
      rust
      (rust :variables 
            rust-backend 'nothing 
-           ;; Disabled while it intrudes into the editor too much
-           ;; rust-backend 'lsp
+           rust-backend 'lsp
            rust-format-on-save t
            )
      haskell
@@ -114,7 +113,7 @@ values."
    ;; unchanged. (default 'vim)
    dotspacemacs-editing-style 'vim
    ;; If non nil output loading progress in `*Messages*' buffer. (default nil)
-   dotspacemacs-verbose-loading t
+   dotspacemacs-verbose-loading nil
    ;; Specify the startup banner. Default value is `official', it displays
    ;; the official spacemacs logo. An integer value is the index of text
    ;; banner, `random' chooses a random text banner in `core/banners'
@@ -135,19 +134,19 @@ values."
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(
-                         spacemacs-dark
                          doom-oceanic-next
                          kaolin-aurora
                          base16-solarized-dark
+                         spacemacs-dark
                          spacemacs-light
                          )
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
-   dotspacemacs-default-font '("Source Code Pro Light"
-                               :size 12
-                               ;;:weight light
+   dotspacemacs-default-font '("Hack Nerd Font Mono"
+                               :size 11
+                               ;;:weight Regular
                                ;;:width normal
                                :powerline-scale 1.6)
    ;; The leader key
@@ -237,7 +236,7 @@ values."
    ;; Transparency can be toggled through `toggle-transparency'. (default 90)
    dotspacemacs-inactive-transparency 90
    ;; If non nil unicode symbols are displayed in the mode line. (default t)
-   dotspacemacs-mode-line-unicode-symbols nil
+   dotspacemacs-mode-line-unicode-symbols t
    ;; If non nil smooth scrolling (native-scrolling) is enabled. Smooth
    ;; scrolling overrides the default behavior of Emacs which recenters the
    ;; point when it reaches the top or bottom of the screen. (default t)
