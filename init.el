@@ -33,6 +33,7 @@ values."
    '(
      better-defaults
      ;; auto-completion
+     org
      version-control
      git
      markdown
@@ -75,7 +76,7 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '(doom-themes kaolin-themes base16-theme)
+   dotspacemacs-additional-packages '(doom-themes kaolin-themes base16-theme tabbar)
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '(firebelly-theme
                                     niflheim-theme
@@ -280,15 +281,14 @@ before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
   (progn
     (global-set-key (kbd "M-q") 'save-buffers-kill-terminal)
+
     (global-set-key [M-up] 'windmove-up)
     (global-set-key [M-down] 'windmove-down)
     (global-set-key [M-left] 'windmove-left)
     (global-set-key [M-right] 'windmove-right)
-    (global-set-key [M-S-left] 'previous-buffer)
-    (global-set-key [M-S-right] 'next-buffer)
 
-    ;;(setq tramp-ssh-controlmaster-options "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
-
+    (global-set-key [M-S-left] 'tabbar-backward-tab)
+    (global-set-key [M-S-right] 'tabbar-forward-tab)
    ))
 
 (defun dotspacemacs/user-config ()
@@ -303,7 +303,7 @@ you should place your code here."
     (setq create-lockfiles nil)
     (setq case-fold-search nil)
 
-    (setq-default line-spacing 4)
+    ;;(setq-default line-spacing 0)
 
     (set-face-bold-p 'bold nil)
     (set-face-italic-p 'italic nil)
@@ -314,6 +314,17 @@ you should place your code here."
     ;;(custom-set-faces (if (not window-system) '(default ((t (:background "nil"))))))
 
     (setq which-key-side-window-max-width 0.66)
+
+    (defadvice tabbar-buffer-tab-label (after fixup_tab_label_space_and_flag activate)
+      (setq ad-return-value
+            (if (and (buffer-modified-p (tabbar-tab-value tab))
+                     (buffer-file-name (tabbar-tab-value tab)))
+                (concat " + " (concat ad-return-value " "))
+              (concat " " (concat ad-return-value " ")))))
+
+    (setq tabbar-use-images nil)
+    (setq tabbar-separator (quote (0.5)))
+    (tabbar-mode 1)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
