@@ -45,7 +45,7 @@ values."
      rust
      (rust :variables 
            rust-backend 'nothing 
-           rust-backend 'lsp
+           ;; rust-backend 'lsp
            rust-format-on-save t
            )
      haskell
@@ -280,6 +280,8 @@ executes.
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
   (progn
+    (setq evil-toggle-key "C-`")
+
     (global-set-key (kbd "M-q") 'save-buffers-kill-terminal)
 
     (global-set-key [M-up] 'windmove-up)
@@ -298,12 +300,13 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
+
     (spacemacs/toggle-truncate-lines-on)
 
     (setq create-lockfiles nil)
     (setq case-fold-search nil)
 
-    ;;(setq-default line-spacing 0)
+    ;;(setq-default line-spacing 4)
 
     (set-face-bold-p 'bold nil)
     (set-face-italic-p 'italic nil)
