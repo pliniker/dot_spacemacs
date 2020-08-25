@@ -42,6 +42,10 @@ values."
      shell-scripts
      yaml
      python
+     (python :variables 
+             python-sort-imports-on-save t
+             python-max-line-length 120
+             )
      rust
      (rust :variables 
            rust-backend 'nothing 
