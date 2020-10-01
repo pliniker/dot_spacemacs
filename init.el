@@ -68,9 +68,12 @@ values."
           lsp-rust-analyzer-max-inlay-hint-length 40
           lsp-rust-analyzer-lru-capacity 1024
           lsp-rust-analyzer-cargo-watch-enable t
+          lsp-python-ms-python-executable "/usr/bin/python3"
           )
      dap
      themes-megapack
+     terraform
+     (terraform :variables terraform-auto-format-on-save t)
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
